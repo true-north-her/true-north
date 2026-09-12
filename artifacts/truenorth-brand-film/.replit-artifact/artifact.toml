@@ -1,0 +1,29 @@
+kind = "video"
+videoAspectRatio = "1:1"
+previewPath = "/truenorth-brand-film/"
+title = "TrueNorth — A calmer way to live"
+description = "A short animated brand film introducing TrueNorth as a quieter, community-first space for reflection, honest conversation, and building together."
+version = "1.0.0"
+id = "artifacts/truenorth-brand-film"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/truenorth-brand-film/" ]
+localPort = 21821
+
+[services.development]
+run = "pnpm --filter @workspace/truenorth-brand-film run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/truenorth-brand-film", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/truenorth-brand-film/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "21821"
+BASE_PATH = "/truenorth-brand-film/"

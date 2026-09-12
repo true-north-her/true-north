@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import 'tailwindcss';
+
+:root {
+  --color-primary: #202b3a;
+  --color-secondary: #527164;
+  --color-accent: #c9765c;
+  --color-sage: #a3b6a6;
+  --color-paper: #f5f0e6;
+  --color-sand: #e7dfd1;
+  --color-ink: #53606a;
+  --color-bg-light: #f5f0e6;
+  --color-bg-dark: #202b3a;
+  --color-bg-muted: #e7dfd1;
+  --color-text-primary: #202b3a;
+  --color-text-secondary: #53606a;
+  --color-text-muted: #aab8b0;
+  --color-text-inverse: #f5f0e6;
+  --font-display: 'Libre Baskerville', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'DM Sans', sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+  --color-bg-light: var(--color-bg-light);
+  --color-bg-dark: var(--color-bg-dark);
+  --color-bg-muted: var(--color-bg-muted);
+  --color-text-primary: var(--color-text-primary);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-inverse: var(--color-text-inverse);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  overflow: hidden;
+  background: var(--color-primary);
+}
+
+.video-media-frame {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  min-width: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.video-media-frame > :is(img, video) {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+.video-media-frame[data-media-fit='contain'] > :is(img, video) {
+  object-fit: contain;
+}
+
+.video-media-frame[data-media-position='top'] > :is(img, video) {
+  object-position: top;
+}
+
+.video-media-frame[data-media-position='right'] > :is(img, video) {
+  object-position: right;
+}
+
+.video-media-frame[data-media-position='bottom'] > :is(img, video) {
+  object-position: bottom;
+}
+
+.video-media-frame[data-media-position='left'] > :is(img, video) {
+  object-position: left;
+}
+
+.tn-film {
+  background: var(--color-primary);
+  color: var(--color-paper);
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.tn-scene {
+  box-sizing: border-box;
+  height: 100%;
+  inset: 0;
+  overflow: hidden;
+  padding: 7vmin;
+  position: absolute;
+  width: 100%;
+}
+
+.tn-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.055em;
+}
+
+.tn-body {
+  font-family: var(--font-body);
+}
+
+.tn-mono {
+  font-family: var(--font-body);
+  font-size: clamp(0.48rem, 1.35vmin, 0.85rem);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.tn-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.42'/%3E%3C/svg%3E");
+  inset: 0;
+  mix-blend-mode: soft-light;
+  opacity: 0.14;
+  pointer-events: none;
+  position: absolute;
+  z-index: 20;
+}
+
+.tn-orbit {
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: center;
+  z-index: 3;
+}
+
+.tn-orbit-a {
+  color: rgba(163, 182, 166, 0.22);
+  height: 70vmin;
+  right: -27vmin;
+  top: -22vmin;
+  width: 70vmin;
+}
+
+.tn-orbit-b {
+  color: rgba(201, 118, 92, 0.32);
+  height: 37vmin;
+  right: -6vmin;
+  top: 3vmin;
+  width: 37vmin;
+}
+
+.tn-persistent-mark {
+  align-items: center;
+  display: flex;
+  gap: 1.25vmin;
+  left: 7vmin;
+  position: absolute;
+  top: 5.2vmin;
+  z-index: 12;
+}
+
+.tn-mark-box {
+  align-items: center;
+  border: 1px solid currentColor;
+  display: flex;
+  height: 3.35vmin;
+  justify-content: center;
+  min-height: 16px;
+  min-width: 16px;
+  position: relative;
+  width: 3.35vmin;
+}
+
+.tn-mark-box::before,
+.tn-mark-box::after {
+  background: currentColor;
+  content: '';
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 1px;
+}
+
+.tn-mark-box::before { height: 1.1vmin; top: 0; }
+.tn-mark-box::after { bottom: 0; height: 1.1vmin; }
+
+.tn-mark-dot {
+  background: var(--color-accent);
+  height: 0.9vmin;
+  min-height: 4px;
+  min-width: 4px;
+  width: 0.9vmin;
+}
+
+.tn-progress {
+  bottom: 4.5vmin;
+  display: flex;
+  gap: 0.8vmin;
+  left: 7vmin;
+  position: absolute;
+  z-index: 12;
+}
+
+.tn-progress i {
+  background: currentColor;
+  display: block;
+  height: 2px;
+  opacity: 0.36;
+  transition: background-color 350ms ease, transform 350ms ease;
+  width: 2.5vmin;
+}
+
+.tn-progress i.active {
+  background: var(--color-accent);
+  opacity: 1;
+  transform: scaleX(1.4);
+  transform-origin: left;
+}
+
+.tn-note {
+  background: rgba(245, 240, 230, 0.84);
+  box-shadow: 1.5vmin 1.5vmin 0 rgba(32, 43, 58, 0.08);
+  color: var(--color-primary);
+  padding: 2.2vmin;
+}
+
+.tn-line {
+  background: currentColor;
+  display: block;
+  height: 1px;
+  transform-origin: left center;
+  width: 100%;
+}
+
+.tn-smallcaps {
+  font-size: clamp(0.48rem, 1.35vmin, 0.78rem);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+@keyframes tn-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: translate3d(1.2vmin, -1.8vmin, 0) rotate(1deg); }
+}
+
+@keyframes tn-breathe {
+  0%, 100% { opacity: 0.62; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.035); }
+}
+
+.tn-drift { animation: tn-drift 8s ease-in-out infinite; }
+.tn-breathe { animation: tn-breathe 5s ease-in-out infinite; }
